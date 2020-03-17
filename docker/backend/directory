@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Provide device information
+if [ $# -eq 0 ]; then
+   echo "file directory \"Unknown\" \"Print to a file inside the directory specified in the device URI\""
+   exit 0
+fi
+
+# Resolve and create a directory
+DIRECTORY=${DEVICE_URI#directory:}
+mkdir -p $DIRECTORY
+
+# Resolve target file
+FILENAME=$3
+TARGET_FILE=$DIRECTORY/$FILENAME
+
+# Print to the target file
+cat $6 > $TARGET_FILE

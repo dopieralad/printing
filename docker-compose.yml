@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  cups:
+    image: "cups:latest"
+    build: "./docker"
+    volumes:
+    - "./docker/volume:/root/volume"
+    stdin_open: true
+    tty: true
